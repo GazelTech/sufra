@@ -1,0 +1,88 @@
+/* Basic Reset & Defaults */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif; /* Basic fallback font - Replace with your desired font */
+    line-height: 1.6;
+    /* If using a Google Font or other web font, declare it here: */
+    /* font-family: 'Your Chosen Font', sans-serif; */
+}
+
+/* Hero Section Styling */
+.hero-container {
+    /* Background Image */
+    background-image: url('images/background.jpg'); /* Make sure this path is correct */
+    background-size: cover;         /* Cover the entire container */
+    background-position: center;    /* Center the image */
+    background-repeat: no-repeat;   /* Do not repeat the image */
+
+    /* Layout - Using Flexbox for centering */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    min-height: 100vh;       /* Make container at least full viewport height */
+    text-align: center;      /* Center text within the content wrapper */
+
+    /* Text Styling */
+    color: white;
+    /* Add a subtle shadow to improve text readability on various backgrounds */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.content-wrapper {
+    max-width: 90%; /* Prevent content from touching edges on very wide screens */
+    padding: 20px; /* Add some padding around the content */
+    /* Optional: Add a semi-transparent background to the content area if needed */
+    /* background-color: rgba(0, 0, 0, 0.3); */
+    /* border-radius: 10px; */
+}
+
+/* Logo Styling */
+.logo {
+    display: block; /* Make it a block element for margin auto to work if needed */
+    max-width: 180px; /* Adjust size as needed */
+    height: auto;     /* Maintain aspect ratio */
+    margin: 0 auto 25px auto; /* Center horizontally (if not already by flex) and add bottom margin */
+
+    /* If your logo.png doesn't include the white background/border-radius: */
+    /* background-color: white; */
+    /* padding: 15px; */
+    /* border-radius: 20px; */ /* Adjust for desired roundness */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */ /* Optional shadow for the logo box */
+}
+
+/* Tagline Styling */
+.tagline {
+    font-size: 2rem; /* Adjust size as needed */
+    font-weight: bold;
+    margin-bottom: 15px;
+    /* Consider using a more specific font if available */
+}
+
+/* Description Styling */
+.description {
+    font-size: 1rem; /* Adjust size as needed */
+    max-width: 600px; /* Limit width for readability */
+    margin-left: auto;
+    margin-right: auto; /* Center the paragraph block */
+    font-weight: lighter;
+}
+
+/* Responsive Adjustments (Example) */
+@media (max-width: 600px) {
+    .tagline {
+        font-size: 1.5rem; /* Smaller font size on smaller screens */
+    }
+
+    .description {
+        font-size: 0.9rem; /* Smaller font size */
+    }
+
+    .logo {
+        max-width: 140px; /* Smaller logo */
+    }
+}
