@@ -231,3 +231,106 @@ body {
         height: 100vh; /* Keep full height even on mobile, or adjust if needed */
     }
 }
+/* --- Navigation / Hamburger Menu Styling --- */
+
+/* Navigation container - not strictly needed for styling here but good practice */
+/* .main-nav { } */
+
+/* Hamburger Button */
+.hamburger-btn {
+    position: fixed; /* Keep it fixed relative to the viewport */
+    top: 20px;
+    right: 20px;
+    z-index: 1001; /* Ensure button is above menu */
+    background-color: #333; /* Dark background */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px; /* Button width */
+    height: 35px; /* Button height */
+    border-radius: 3px;
+}
+
+.hamburger-line {
+    display: block;
+    width: 100%;
+    height: 3px; /* Line thickness */
+    background-color: white; /* Line color */
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out; /* Animation for 'X' transform */
+}
+
+/* Hamburger Button 'X' transformation when active */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg); /* Adjust values as needed */
+}
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0; /* Middle line fades out */
+}
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg); /* Adjust values as needed */
+}
+
+
+/* Navigation Menu Panel */
+.nav-menu {
+    position: fixed; /* Fixed position */
+    top: 0;
+    right: 0;
+    width: 250px; /* Menu width */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(51, 51, 51, 0.95); /* Dark background, slightly transparent */
+    z-index: 1000; /* Below button but above page content */
+    list-style: none;
+    padding: 80px 0 20px 0; /* Top padding to avoid button, other padding */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center links horizontally */
+
+    /* Hide menu off-screen initially */
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out; /* Smooth slide transition */
+}
+
+/* Menu Open State */
+.nav-menu.menu-open {
+    transform: translateX(0); /* Slide menu into view */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2); /* Optional shadow */
+}
+
+/* Menu Links */
+.nav-menu li {
+    width: 100%;
+    text-align: center;
+}
+
+.nav-menu a {
+    display: block; /* Make link take full width */
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus {
+    background-color: #555; /* Hover/focus background */
+}
+
+
+/* --- Ensure previous responsive rules are still at the end --- */
+/* ... (keep existing @media query rules) ... */
+/* You might want to adjust padding/margins inside the @media query if needed */
+@media (max-width: 768px) {
+     /* ... existing responsive rules ... */
+
+     /* Optional: Adjust menu width on smaller screens if needed */
+     /* .nav-menu {
+         width: 200px;
+     } */
+}
