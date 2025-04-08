@@ -5,84 +5,166 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth; /* Optional: Adds smooth scrolling when navigating via links */
+}
+
 body {
     font-family: sans-serif; /* Basic fallback font - Replace with your desired font */
     line-height: 1.6;
     /* If using a Google Font or other web font, declare it here: */
     /* font-family: 'Your Chosen Font', sans-serif; */
+    background-color: #f4f4f4; /* Optional: Background for area outside sections */
 }
 
-/* Hero Section Styling */
-.hero-container {
+/* --- Hero Section Styling --- */
+.hero-section {
     /* Background Image */
-    background-image: url('images/background.jpg'); /* Make sure this path is correct */
-    background-size: cover;         /* Cover the entire container */
-    background-position: center;    /* Center the image */
-    background-repeat: no-repeat;   /* Do not repeat the image */
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     /* Layout - Using Flexbox for centering */
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
-    min-height: 100vh;       /* Make container at least full viewport height */
-    text-align: center;      /* Center text within the content wrapper */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Make section at least full viewport height */
+    text-align: center;
 
     /* Text Styling */
     color: white;
-    /* Add a subtle shadow to improve text readability on various backgrounds */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-.content-wrapper {
-    max-width: 90%; /* Prevent content from touching edges on very wide screens */
-    padding: 20px; /* Add some padding around the content */
-    /* Optional: Add a semi-transparent background to the content area if needed */
-    /* background-color: rgba(0, 0, 0, 0.3); */
-    /* border-radius: 10px; */
+/* Styles for content inside hero */
+.hero-section .content-wrapper {
+    max-width: 90%;
+    padding: 20px;
 }
 
-/* Logo Styling */
-.logo {
-    display: block; /* Make it a block element for margin auto to work if needed */
-    max-width: 180px; /* Adjust size as needed */
-    height: auto;     /* Maintain aspect ratio */
-    margin: 0 auto 25px auto; /* Center horizontally (if not already by flex) and add bottom margin */
-
-    /* If your logo.png doesn't include the white background/border-radius: */
-    /* background-color: white; */
-    /* padding: 15px; */
-    /* border-radius: 20px; */ /* Adjust for desired roundness */
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */ /* Optional shadow for the logo box */
+.hero-section .logo {
+    display: block;
+    max-width: 180px;
+    height: auto;
+    margin: 0 auto 25px auto;
 }
 
-/* Tagline Styling */
-.tagline {
-    font-size: 2rem; /* Adjust size as needed */
+.hero-section .tagline {
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 15px;
-    /* Consider using a more specific font if available */
 }
 
-/* Description Styling */
-.description {
-    font-size: 1rem; /* Adjust size as needed */
-    max-width: 600px; /* Limit width for readability */
+.hero-section .description {
+    font-size: 1rem;
+    max-width: 600px;
     margin-left: auto;
-    margin-right: auto; /* Center the paragraph block */
+    margin-right: auto;
     font-weight: lighter;
 }
 
-/* Responsive Adjustments (Example) */
-@media (max-width: 600px) {
-    .tagline {
-        font-size: 1.5rem; /* Smaller font size on smaller screens */
+/* --- About Us Section Styling --- */
+.about-section {
+    display: flex; /* Creates the two-column layout */
+    min-height: 80vh; /* Give the section height, adjust as needed */
+    background-color: #3b3a36; /* Fallback background - applied mainly to text col */
+    color: white; /* Default text color for this section */
+}
+
+.pattern-column {
+    flex: 0 0 30%; /* Don't grow, don't shrink, base width 30% */
+    background-image: url('images/pattern.jpg'); /* Set pattern image */
+    background-size: cover;
+    background-position: center;
+    /* Hide on smaller screens (see media query below) */
+}
+
+.text-column {
+    flex: 1 1 70%; /* Grow, shrink, base width 70% (takes remaining space) */
+    background-color: #3b3a36; /* Dark background for text area */
+    padding: 60px 80px; /* Generous padding inside the text column */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text block vertically */
+}
+
+.text-column h2 {
+    text-align: center;
+    font-size: 2.5rem; /* Adjust size */
+    margin-bottom: 15px;
+    font-weight: bold; /* Or adjust as needed */
+    text-transform: uppercase;
+}
+
+.text-column h3 {
+    text-align: center;
+    font-size: 1.5rem; /* Adjust size */
+    margin-bottom: 5px;
+    font-weight: normal; /* Adjust as needed */
+}
+
+.text-column .subheading {
+    text-align: center;
+    font-size: 1.1rem; /* Adjust size */
+    color: #cccccc; /* Slightly lighter color */
+    margin-bottom: 30px;
+    font-style: italic; /* Make italic */
+}
+
+.text-column .intro-paragraph {
+    text-align: center; /* Center the first paragraph */
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    font-weight: bold; /* Bolder intro text */
+}
+
+.text-column p {
+    font-size: 1rem; /* Standard text size */
+    margin-bottom: 20px;
+    /* text-align: justify; */ /* Optional: Justify text */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    /* Hero Section adjustments */
+    .hero-section .tagline {
+        font-size: 1.5rem;
+    }
+    .hero-section .description {
+        font-size: 0.9rem;
+    }
+    .hero-section .logo {
+        max-width: 140px;
     }
 
-    .description {
-        font-size: 0.9rem; /* Smaller font size */
+    /* About Section adjustments */
+    .about-section {
+        flex-direction: column; /* Stack columns vertically */
+        min-height: auto; /* Adjust height automatically */
     }
 
-    .logo {
-        max-width: 140px; /* Smaller logo */
+    .pattern-column {
+        /* Decide what to do with pattern on mobile */
+         display: none; /* Option 1: Hide it completely */
+        /* Option 2: Give it a fixed height */
+        /* flex-basis: 200px;  */
+        /* min-height: 200px; */
+        /* flex-grow: 0; */
+    }
+
+    .text-column {
+        flex-basis: auto; /* Reset basis */
+        padding: 40px 30px; /* Reduce padding */
+    }
+
+    .text-column h2 {
+        font-size: 2rem;
+    }
+    .text-column h3 {
+        font-size: 1.3rem;
+    }
+     .text-column p, .text-column .subheading, .text-column .intro-paragraph {
+        font-size: 0.95rem;
     }
 }
