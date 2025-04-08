@@ -50,7 +50,7 @@
     </section>
 
     <section id="menu-section" class="menu-section">
-        <iframe src="https://docs.google.com/document/d/e/2PACX-1vRDIJixGxASLDGprGJocWQ6cVSvpdXejTr61WbNDJwUrvIWwE0YajPq6dh-oEhq5oTOSuoc8S_9QPpK/pub?embedded=true"></iframe>
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vT3R64ZfCW1GpPRnms-NlW08lWqktp2Q7lpQrrUYpWdlHhBNjxBCwfsyam4fxixDU7HvLzUA-Ofjp2Y/pub?embedded=true"></iframe>
     </section>
 
     <script>
@@ -82,14 +82,14 @@
         });
 
         // Optional: Close menu if clicking outside of it (more advanced)
-        // document.addEventListener('click', function(event) {
-        //     const isClickInsideNav = navMenu.contains(event.target);
-        //     const isClickOnButton = hamburgerBtn.contains(event.target);
-        //
-        //     if (!isClickInsideNav && !isClickOnButton && navMenu.classList.contains('menu-open')) {
-        //         toggleMenu();
-        //     }
-        // });
+         document.addEventListener('click', function(event) {
+             const isClickInsideNav = navMenu.contains(event.target);
+             const isClickOnButton = hamburgerBtn.contains(event.target);
+        
+             if (!isClickInsideNav && !isClickOnButton && navMenu.classList.contains('menu-open')) {
+                 toggleMenu();
+             }
+         });
 
     </script>
 
