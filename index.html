@@ -8,10 +8,23 @@
     </head>
 <body>
 
+    <nav class="main-nav">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#menu-section">Menu</a></li>
+            </ul>
+    </nav>
+
     <section id="hero" class="hero-section">
         <div class="content-wrapper">
             <img src="images/logo.png" alt="Sufra Kabab Logo" class="logo">
-            <h1 class="tagline">Sufra of Spices, Stories, and Shared Smiles :) </h1>
+            <h1 class="tagline">Sufra of Spices, Stories, and Shared Smiles!</h1>
             <p class="description">
                 [Sufra AKA dastarkhwan: A spread of food typically on a cloth, where people gather to eat and eat as a family or a community]
             </p>
@@ -19,27 +32,66 @@
     </section>
 
     <section id="about" class="about-section">
-        <div class="pattern-column">
-            </div>
+        <div class="pattern-column"></div>
         <div class="text-column">
-            <h2>ABOUT US</h2>
-            <h3>WELCOME TO SUFRA KABAB</h3>
-            <p class="subheading"><em>Savor Tradition, Enjoy Halal</em></p>
-            <p class="intro-paragraph">
-                SAVOR AUTHENTIC INDIAN HALAL CUISINE WITH OUR SIGNATURE SUFRA KABAB AND A VARIETY OF MOUTHWATERING KEBABS, GRILLED TO PERFECTION!
-            </p>
-            <p>
-                AT SUFRA KABAB, FOOD IS MORE THAN JUST A MEAL—IT’S A BLESSING, A TRADITION, AND A WAY TO BRING HEARTS CLOSER. ROOTED IN THE AGE-OLD PRACTICE OF EATING TOGETHER AND SHARING FOOD OVER A SUFRA OR A DASTARKHWAN, OUR CATERING SERVICE IS MEANT TO CREATE MOMENTS OF CONNECTION, WARMTH, AND CELEBRATION THROUGH OUR FOOD.
-            </p>
-            <p>
-                AT SUFRA KABAB, WE ARE DEDICATED TO BRINGING YOU AUTHENTIC INDIAN HALAL CUISINE to you, CRAFTED WITH PASSION AND TRADITION. WE USE TIME-HONORED RECIPES AND THE FINEST INGREDIENTS TO CREATE MOUTHWATERING KEBABS AND FLAVORFUL DISHES THAT TRANSPORT YOUR TASTE BUDS WITH EVERY BITE. FROM SPECIAL EVENTS AND FAMILY GATHERINGS TO A SIMPLE CRAVING FOR HOME-COOKED GOODNESS, OUR CATERING SERVICES DELIVER THE RICH, COMFORTING FLAVORS OF INDIAN CUISINE STRAIGHT TO YOUR TABLE. EXPERIENCE THE WARMTH OF TRADITION AND THE JOY OF EXCEPTIONAL FOOD WITH SUFRA KABAB.
-            </p>
+             <h2>ABOUT US</h2>
+             <h3>WELCOME TO SUFRA KABAB</h3>
+             <p class="subheading"><em>Savor Tradition, Enjoy Halal</em></p>
+             <p class="intro-paragraph">
+                 SAVOR AUTHENTIC INDIAN HALAL CUISINE WITH OUR SIGNATURE SUFRA KABAB AND A VARIETY OF MOUTHWATERING KEBABS, GRILLED TO PERFECTION!
+             </p>
+             <p>
+                 AT SUFRA KABAB, FOOD IS MORE THAN JUST A MEAL—IT’S A BLESSING, A TRADITION, AND A WAY TO BRING HEARTS CLOSER. ROOTED IN THE AGE-OLD PRACTICE OF EATING TOGETHER AND SHARING FOOD OVER A SUFRA OR A DASTARKHWAN, OUR CATERING SERVICE IS MEANT TO CREATE MOMENTS OF CONNECTION, WARMTH, AND CELEBRATION THROUGH OUR FOOD.
+             </p>
+             <p>
+                 AT SUFRA KABAB, WE ARE DEDICATED TO BRINGING YOU AUTHENTIC INDIAN HALAL CUISINE, CRAFTED WITH PASSION AND TRADITION. WE USE TIME-HONORED RECIPES AND THE FINEST INGREDIENTS TO CREATE MOUTHWATERING KEBABS AND FLAVORFUL DISHES THAT TRANSPORT YOUR TASTE BUDS WITH EVERY BITE. FROM SPECIAL EVENTS AND FAMILY GATHERINGS TO A SIMPLE CRAVING FOR HOME-COOKED GOODNESS, OUR CATERING SERVICES DELIVER THE RICH, COMFORTING FLAVORS OF INDIAN CUISINE STRAIGHT TO YOUR TABLE. EXPERIENCE THE WARMTH OF TRADITION AND THE JOY OF EXCEPTIONAL FOOD WITH SUFRA KABAB.
+             </p>
         </div>
     </section>
 
     <section id="menu-section" class="menu-section">
-        <iframe src="https://docs.google.com/document/d/e/2PACX-1vT3R64ZfCW1GpPRnms-NlW08lWqktp2Q7lpQrrUYpWdlHhBNjxBCwfsyam4fxixDU7HvLzUA-Ofjp2Y/pub?embedded=true"></iframe>
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vRDIJixGxASLDGprGJocWQ6cVSvpdXejTr61WbNDJwUrvIWwE0YajPq6dh-oEhq5oTOSuoc8S_9QPpK/pub?embedded=true"></iframe>
     </section>
 
-    </body>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        const menuLinks = document.querySelectorAll('.nav-menu a'); // Get all links in menu
+
+        // Toggle menu function
+        function toggleMenu() {
+            navMenu.classList.toggle('menu-open'); // Toggles visibility class
+            hamburgerBtn.classList.toggle('active'); // Toggles button active state (for 'X' animation)
+
+            // Update ARIA attribute for accessibility
+            const isExpanded = navMenu.classList.contains('menu-open');
+            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+        }
+
+        // Event listener for hamburger button click
+        hamburgerBtn.addEventListener('click', toggleMenu);
+
+        // Event listeners for menu links (close menu on click)
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Check if menu is open before closing
+                if (navMenu.classList.contains('menu-open')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Optional: Close menu if clicking outside of it (more advanced)
+        // document.addEventListener('click', function(event) {
+        //     const isClickInsideNav = navMenu.contains(event.target);
+        //     const isClickOnButton = hamburgerBtn.contains(event.target);
+        //
+        //     if (!isClickInsideNav && !isClickOnButton && navMenu.classList.contains('menu-open')) {
+        //         toggleMenu();
+        //     }
+        // });
+
+    </script>
+
+</body>
 </html>
