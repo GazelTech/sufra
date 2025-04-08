@@ -168,3 +168,66 @@ body {
         font-size: 0.95rem;
     }
 }
+/* --- Google Doc Embed Section Styling --- */
+.menu-section {
+    width: 100%;        /* Section takes full width */
+    height: 100vh;       /* Section takes full viewport height */
+    padding: 0;         /* Remove any default padding */
+    overflow: hidden;   /* Hide any potential overflow from the section itself */
+}
+
+.menu-section iframe {
+    width: 100%;        /* Iframe fills the section width */
+    height: 100%;       /* Iframe fills the section height */
+    border: none;       /* Remove default iframe border */
+    display: block;     /* Ensure iframe behaves like a block element */
+}
+
+/* Optional: Add a background color to the section in case the iframe is slow to load */
+/* .menu-section {
+    background-color: #e0e0e0;
+} */
+
+
+/* --- Ensure previous responsive rules are still at the end --- */
+@media (max-width: 768px) {
+    /* Hero Section adjustments */
+    /* ... (keep existing hero rules) ... */
+    .hero-section .tagline {
+        font-size: 1.5rem;
+    }
+    .hero-section .description {
+        font-size: 0.9rem;
+    }
+    .hero-section .logo {
+        max-width: 140px;
+    }
+
+    /* About Section adjustments */
+    /* ... (keep existing about rules) ... */
+    .about-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+    .pattern-column {
+         display: none;
+    }
+    .text-column {
+        flex-basis: auto;
+        padding: 40px 30px;
+    }
+    .text-column h2 {
+        font-size: 2rem;
+    }
+    .text-column h3 {
+        font-size: 1.3rem;
+    }
+     .text-column p, .text-column .subheading, .text-column .intro-paragraph {
+        font-size: 0.95rem;
+    }
+
+    /* Menu Section adjustments (usually iframe content adapts itself) */
+    .menu-section {
+        height: 100vh; /* Keep full height even on mobile, or adjust if needed */
+    }
+}
