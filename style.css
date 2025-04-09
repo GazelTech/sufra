@@ -172,11 +172,14 @@ body {
 .menu-section {
     width: 100%;        /* Section takes full width */
     height: 100vh;       /* Section takes full viewport height */
-    padding: 0;         /* Remove any default padding */
+    padding: 40px;         /* Remove any default padding */
     overflow: hidden;   /* Hide any potential overflow from the section itself */
     background-image: url('images/arabian1.jpg'); /* Set pattern image */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    /* Ensure box-sizing is correct (already set globally) */
+    box-sizing: border-box;
 }
 
 .menu-section iframe {
@@ -187,9 +190,9 @@ body {
 }
 
 /* Optional: Add a background color to the section in case the iframe is slow to load */
-/* .menu-section {
+ .menu-section {
     background-color: #e0e0e0;
-} */
+} 
 
 
 /* --- Ensure previous responsive rules are still at the end --- */
